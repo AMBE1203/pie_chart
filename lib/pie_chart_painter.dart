@@ -6,8 +6,9 @@ class PieChartPainter extends CustomPainter {
   final PieChartData pieChartData;
   final double progress;
   final SliceDrawer sliceDrawer;
+  final bool rounded;
 
-  PieChartPainter({this.sliceDrawer, this.pieChartData, this.progress});
+  PieChartPainter({this.sliceDrawer, this.pieChartData, this.progress, this.rounded = false});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -27,7 +28,8 @@ class PieChartPainter extends CustomPainter {
           area: size,
           startAngle: radians(startArc),
           sweepAngle: radians(arc),
-          slice: element);
+          slice: element,
+          rounded:  rounded);
 
       startArc += arc;
 
