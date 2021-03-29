@@ -1,5 +1,3 @@
-import 'dart:wasm';
-
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart_data.dart';
 import 'package:pie_chart/pie_chart_painter.dart';
@@ -87,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage>
                 return Center(
                   child: CustomPaint(
                     painter: PieChartPainter(
+                      rounded: true,
                         sliceDrawer:
                             SimpleSliceDrawer(sliceThickness: _sliceThickness),
                         pieChartData: data,
