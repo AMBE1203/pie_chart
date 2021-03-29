@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart_data.dart';
 import 'package:pie_chart/slice_drawer.dart';
 
@@ -37,9 +38,13 @@ class SimpleSliceDrawer implements SliceDrawer {
       Size area,
       double startAngle,
       double sweepAngle,
-      Slice slice}) {
+      Slice slice,
+      bool rounded}) {
     var sliceThickness = calculateSectorThickness(area: area);
     var drawableArea = calculateDrawableArea(area: area);
+    if (rounded){
+      sectionPaint..strokeCap = StrokeCap.round;
+    }
 
     canvas.drawArc(
         drawableArea,
